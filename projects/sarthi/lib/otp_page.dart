@@ -10,8 +10,8 @@ class OtpPage extends StatelessWidget{
           width: double.infinity,
           decoration: const BoxDecoration(
               gradient: LinearGradient(colors: [
-                Color(0xff191526),
-                Color(0xff191526),
+                Colors.white,
+                Colors.white,
               ],
               )
           ),
@@ -26,14 +26,14 @@ class OtpPage extends StatelessWidget{
                   const Text('OTP Verification',
                     style: TextStyle(
                         fontSize: 30,
-                        color: Colors.white,
+                        color: Colors.black54,
                         fontWeight: FontWeight.bold
                     ),
                   ),
                   const Text('We have sent an OTP on given number :)',
                     style: TextStyle(
                         fontSize: 15,
-                        color: Colors.white,
+                        color: Colors.black54,
                         fontWeight: FontWeight.normal
                     ),
                   ),

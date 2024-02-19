@@ -20,8 +20,8 @@ class _LoginPageState extends State<LoginPage> {
           decoration: const BoxDecoration(
               gradient: LinearGradient(
             colors: [
-              Color(0xff191526),
-              Color(0xff191526),
+              Colors.white,
+              Colors.white,
             ],
           )),
           child: Padding(
@@ -33,14 +33,16 @@ class _LoginPageState extends State<LoginPage> {
                     'Login',
                     style: TextStyle(
                         fontSize: 30,
-                        color: Colors.white,
+                        color: Colors.black54,
                         fontWeight: FontWeight.bold),
                   ),
                   TextField(
+
                     keyboardType: TextInputType.text,
                     controller: nameController,
-                    cursorColor: Colors.white,
+                    cursorColor: Colors.black,
                     decoration: InputDecoration(
+
                         label: Text('Name',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
