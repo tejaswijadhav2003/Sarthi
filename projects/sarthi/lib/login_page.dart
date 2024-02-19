@@ -39,12 +39,10 @@ class _LoginPageState extends State<LoginPage> {
                         fontWeight: FontWeight.bold),
                   ),
                   TextField(
-
                     keyboardType: TextInputType.text,
                     controller: nameController,
                     cursorColor: Colors.black,
                     decoration: InputDecoration(
-
                         label: Text('Name',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -75,7 +73,9 @@ class _LoginPageState extends State<LoginPage> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => OtpPage(verificationId: '',)));
+                                      builder: (context) => OtpPage(
+                                            verificationId: verificationId,
+                                          )));
                             },
                             codeAutoRetrievalTimeout:
                                 (String verificationId) {},
