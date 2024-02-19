@@ -1,100 +1,103 @@
+import 'dart:math';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:sarthi/login_page.dart';
 
 class OtpPage extends StatefulWidget {
-  const OtpPage({super.key});
+  String verificationId;
+  OtpPage({super.key, required this.verificationId});
 
   @override
   State<OtpPage> createState() => _OtpPageState();
 }
 
-class _OtpPageState extends State<OtpPage>{
+class _OtpPageState extends State<OtpPage> {
   TextEditingController otpController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       body: Container(
           height: double.infinity,
           width: double.infinity,
           decoration: const BoxDecoration(
-              gradient: LinearGradient(colors: [
-                Colors.white,
-                Colors.white,
-              ],
-              )
-          ),
-          
+              gradient: LinearGradient(
+            colors: [
+              Colors.white,
+              Colors.white,
+            ],
+          )),
           child: Padding(
-            padding:  const EdgeInsets.only(top: 400.0, left: 50, right:50 ),
+            padding: const EdgeInsets.only(top: 400.0, left: 50, right: 50),
             child: Form(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-
-                  const Text('OTP Verification',
+                  const Text(
+                    'OTP Verification',
                     style: TextStyle(
                         fontSize: 30,
                         color: Colors.black54,
-                        fontWeight: FontWeight.bold
-                    ),
+                        fontWeight: FontWeight.bold),
                   ),
-                  const Text('We have sent an OTP on given number :)',
+                  const Text(
+                    'We have sent an OTP on given number :)',
                     style: TextStyle(
                         fontSize: 15,
                         color: Colors.black54,
-                        fontWeight: FontWeight.normal
-                    ),
+                        fontWeight: FontWeight.normal),
                   ),
-                   TextField(
+                  TextField(
                     controller: otpController,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                        label: Text('Enter Pin',style:
-                        TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey,
-                        )
-                        )
-                    ),
-
+                        label: Text('Enter Pin',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey,
+                            ))),
                   ),
-
-                  SizedBox(height: 70,),
+                  SizedBox(
+                    height: 70,
+                  ),
                   ElevatedButton(
-
-                      onPressed: (){
-                        print('huii');
-                        print(otpController);
+                      onPressed: () async {
+                        try {
+                          PhoneAuthCredential credential =
+                              await PhoneAuthProvider.credential(
+                                  verificationId: widget.verificationId,
+                                  smsCode: otpController.text.toString());
+                          FirebaseAuth.instance
+                              .signInWithCredential(credential)
+                              .then((value) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        HomePage(title: "Home Page")));
+                          });
+                        } catch (ex) {
+                          log(ex.toString());
+                        }
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xff10CF6E3),
                         minimumSize: Size(300, 55),
                       ),
-                      child: const Text('> Next',
+                      child: const Text(
+                        '> Next',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
                           color: Colors.white,
                         ),
-                      )
-
-                  )
-
+                      ))
                 ],
               ),
             ),
-
-
-
-          )
-
-      ),
-
+          )),
     );
-
   }
-
 }
 
-class OTPTextField {
-}
+class OTPTextField {}
