@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sarthi/login_page.dart';
-import 'package:sarthi/services/auth/homepage.dart';
+import 'package:sarthi/homepage.dart';
 
 class OtpPage extends StatefulWidget {
   String verificationId;
@@ -74,11 +74,10 @@ class _OtpPageState extends State<OtpPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        HomePage(title: "Home Page")));
+                                    builder: (context) => HomePage()));
                           });
                         } catch (ex) {
-                          log(ex.toString());
+                          print(ex);
                         }
                       },
                       style: ElevatedButton.styleFrom(
