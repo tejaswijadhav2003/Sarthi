@@ -73,11 +73,10 @@ class _OtpPageState extends State<OtpPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        HomePage(title: "Home Page")));
+                                    builder: (context) => HomePage()));
                           });
                         } catch (ex) {
-                          log(ex.toString());
+                          print(ex);
                         }
                       },
                       style: ElevatedButton.styleFrom(
