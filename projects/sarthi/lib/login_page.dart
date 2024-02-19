@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/material/elevated_button.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -36,6 +35,7 @@ class _LoginPageState extends State<LoginPage> {
                         fontWeight: FontWeight.bold),
                   ),
                   const TextField(
+                    cursorColor: Colors.white,
                     decoration: InputDecoration(
                         label: Text('Name',
                             style: TextStyle(
@@ -55,16 +55,8 @@ class _LoginPageState extends State<LoginPage> {
                     height: 70,
                   ),
                   ElevatedButton(
-                      onPressed: () async {
-                        await FirebaseAuth.instance.verifyPhoneNumber(
-                            verificationCompleted:
-                                (PhoneAuthCredential credential) {},
-                            verificationFailed: (FirebaseAuthException ex) {},
-                            codeSent:
-                                (String verificationid, int? resendtoken) {},
-                            codeAutoRetrievalTimeout:
-                                (String verificationid) {},
-                            phoneNumber: phoneController.text.toString());
+                      onPressed: () {
+                        print('Hiieeeee firebase add karde');
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xff10CF6E3),
