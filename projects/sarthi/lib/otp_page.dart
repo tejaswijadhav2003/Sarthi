@@ -1,15 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/material/elevated_button.dart';
-import 'package:sarthi/otp_page.dart';
-class LoginPage extends StatefulWidget{
-  const LoginPage({super.key});
-
+class OtpPage extends StatelessWidget{
   @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-class _LoginPageState extends State<LoginPage> {
-  @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
           height: double.infinity,
@@ -22,26 +14,30 @@ class _LoginPageState extends State<LoginPage> {
               )
           ),
 
-
-
           child: Padding(
             padding:  const EdgeInsets.only(top: 400.0, left: 50, right:50 ),
             child: Form(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
 
-                  const Text('Login',
+                  const Text('OTP Verification',
                     style: TextStyle(
                         fontSize: 30,
                         color: Colors.white,
                         fontWeight: FontWeight.bold
                     ),
                   ),
+                  const Text('We have sent an OTP on given number :)',
+                    style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white,
+                        fontWeight: FontWeight.normal
+                    ),
+                  ),
                   const TextField(
-                    cursorColor: Colors.white,
                     decoration: InputDecoration(
-
-                        label: Text('Name',style:
+                        label: Text('Enter Pin',style:
                         TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.grey,
@@ -50,36 +46,23 @@ class _LoginPageState extends State<LoginPage> {
                     ),
 
                   ),
-                  const TextField(
-                    decoration: InputDecoration(
-                        label: Text('Phone Number',style:
-                        TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey,
-                        )
-                        )
-                    ),
-                  ),
+
                   SizedBox(height: 70,),
                   ElevatedButton(
 
                       onPressed: (){
-
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: (context)=> OtpPage())
-                        );
+                        print('huii');
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xff10CF6E3),
                         minimumSize: Size(300, 55),
                       ),
-                      child: const Text('Send OTP',
-                          style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                ),
+                      child: const Text('> Next',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),
                       )
 
                   )
@@ -89,8 +72,16 @@ class _LoginPageState extends State<LoginPage> {
             ),
 
 
+
           )
+
       ),
+
     );
+
   }
+
+}
+
+class OTPTextField {
 }
