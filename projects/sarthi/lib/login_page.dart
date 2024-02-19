@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/material/elevated_button.dart';
 class LoginPage extends StatefulWidget{
   const LoginPage({super.key});
 
@@ -23,19 +24,19 @@ class _LoginPageState extends State<LoginPage> {
 
 
           child: Padding(
-            padding:  EdgeInsets.only(top: 400.0, left: 50, right:50 ),
+            padding:  const EdgeInsets.only(top: 400.0, left: 50, right:50 ),
             child: Form(
               child: Column(
                 children: <Widget>[
 
-                  Text('Login',
+                  const Text('Login',
                     style: TextStyle(
                         fontSize: 30,
                         color: Colors.white,
                         fontWeight: FontWeight.bold
                     ),
                   ),
-                  TextField(
+                  const TextField(
                     decoration: InputDecoration(
                         label: Text('Name',style:
                         TextStyle(
@@ -46,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
 
                   ),
-                  TextField(
+                  const TextField(
                     decoration: InputDecoration(
                         label: Text('Phone Number',style:
                         TextStyle(
@@ -57,28 +58,25 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   SizedBox(height: 70,),
-                  Container(
+                  ElevatedButton(
 
-                    height: 55,
-                    width: 300,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        gradient: LinearGradient(
-                            colors: [
-                              Color(0xff10CF6E3),
-                              Color(0xff10CF6E3),
-                            ]
-                        )
-                    ),
-                    child: Center(child: Text('Login',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.white,
+                      onPressed: (){
+                        print('Hiieeeee firebase add karde');
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xff10CF6E3),
+                        minimumSize: Size(300, 55),
                       ),
+                      child: const Text('Send OTP',
+                          style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                ),
+                      )
 
-                    ),),
                   )
+
                 ],
               ),
             ),
