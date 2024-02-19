@@ -74,7 +74,7 @@ class _OtpPageState extends State<OtpPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => HomePage()));
+                                    builder: (context) => HomePage(title: '',)));
                           });
                         } catch (ex) {
                           print(ex);
