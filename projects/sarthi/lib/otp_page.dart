@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 class OtpPage extends StatelessWidget{
+  TextEditingController otpController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: Container(
           height: double.infinity,
@@ -13,7 +15,7 @@ class OtpPage extends StatelessWidget{
               ],
               )
           ),
-
+          
           child: Padding(
             padding:  const EdgeInsets.only(top: 400.0, left: 50, right:50 ),
             child: Form(
@@ -35,7 +37,9 @@ class OtpPage extends StatelessWidget{
                         fontWeight: FontWeight.normal
                     ),
                   ),
-                  const TextField(
+                   TextField(
+                    controller: otpController,
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                         label: Text('Enter Pin',style:
                         TextStyle(
@@ -52,6 +56,7 @@ class OtpPage extends StatelessWidget{
 
                       onPressed: (){
                         print('huii');
+                        print(otpController);
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xff10CF6E3),

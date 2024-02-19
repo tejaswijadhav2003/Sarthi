@@ -9,6 +9,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +36,9 @@ class _LoginPageState extends State<LoginPage> {
                         color: Colors.white,
                         fontWeight: FontWeight.bold),
                   ),
-                  const TextField(
+                  TextField(
+                    keyboardType: TextInputType.text,
+                    controller: nameController,
                     cursorColor: Colors.white,
                     decoration: InputDecoration(
                         label: Text('Name',
@@ -43,7 +47,9 @@ class _LoginPageState extends State<LoginPage> {
                               color: Colors.grey,
                             ))),
                   ),
-                  const TextField(
+                  TextField(
+                    keyboardType: TextInputType.number,
+                    controller: phoneController,
                     decoration: InputDecoration(
                         label: Text('Phone Number',
                             style: TextStyle(
@@ -56,6 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   ElevatedButton(
                       onPressed: () {
+                        print(phoneController);
                         print('Hiieeeee firebase add karde');
                       },
                       style: ElevatedButton.styleFrom(
