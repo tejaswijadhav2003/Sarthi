@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/material/elevated_button.dart';
+import 'package:sarthi/otp_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -61,9 +63,21 @@ class _LoginPageState extends State<LoginPage> {
                     height: 70,
                   ),
                   ElevatedButton(
-                      onPressed: () {
-                        print(phoneController);
-                        print('Hiieeeee firebase add karde');
+                      onPressed: () async {
+                        await FirebaseAuth.instance.verifyPhoneNumber(
+                            verificationCompleted:
+                                (PhoneAuthCredential credential) {},
+                            verificationFailed: (FirebaseAuthException ex) {},
+                            codeSent:
+                                (String verificationId, int? resendToken) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => OtpPage()));
+                            },
+                            codeAutoRetrievalTimeout:
+                                (String verificationId) {},
+                            phoneNumber: phoneController.text.toString());
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xff10CF6E3),
