@@ -18,6 +18,10 @@ class _OtpPageState extends State<OtpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("OTP Screen"),
+        centerTitle: true,
+      ),
       body: Container(
           height: double.infinity,
           width: double.infinity,
@@ -50,8 +54,9 @@ class _OtpPageState extends State<OtpPage> {
                   ),
                   TextField(
                     controller: otpController,
-                    keyboardType: TextInputType.number,
+                    keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
+                        hintText: "Enter the OTP",
                         label: Text('Enter Pin',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -74,7 +79,9 @@ class _OtpPageState extends State<OtpPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => HomePage(title: '',)));
+                                    builder: (context) => HomePage(
+                                          title: '',
+                                        )));
                           });
                         } catch (ex) {
                           print(ex);

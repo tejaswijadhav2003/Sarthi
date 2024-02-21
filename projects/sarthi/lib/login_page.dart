@@ -16,6 +16,10 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Login Page"),
+        centerTitle: true,
+      ),
       body: Container(
           height: double.infinity,
           width: double.infinity,
@@ -86,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                         minimumSize: Size(300, 55),
                       ),
                       child: const Text(
-                        'Send OTP',
+                        'Verify phone number',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
