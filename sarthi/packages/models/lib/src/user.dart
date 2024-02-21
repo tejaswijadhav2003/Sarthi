@@ -36,5 +36,30 @@ class User extends Equatable {
     );
   }
 
-  factory
+// data will be retrieved from the external server and they will be passed in the client as a map
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
+      id: json['id'] ?? const Uuid().v4(),
+      username: json['username'] ?? '',
+      phone: json['phone'] ?? '',
+      email: json['email'] ?? '',
+      avatarUrl:
+          json['avatar_url'] ?? 'https://source.unsplash.com/random/profile',
+      status: json['status'] ?? '',
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'username': username,
+      'phone': phone,
+      'email': email,
+      'avatarUrl': avatarUrl,
+      'status': status,
+    };
+  }
+
+  @override
+  List<Object?> get props => [id, username, phone, email, avatarUrl, status];
 }
