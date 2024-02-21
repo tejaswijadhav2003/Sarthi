@@ -57,6 +57,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.6"
+  dart_frog:
+    dependency: "direct main"
+    description:
+      name: dart_frog
+      sha256: e8ee445c507f2599595a4b878d7b7bb28201ad592461ef19c1ae2b030f5fe109
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1-dev"
   fake_async:
     dependency: transitive
     description:
