@@ -36,7 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   speech_to_text: ^6.6.1
   avatar_glow: ^3.0.1
-  dart_frog: ^1.1.0
+  dart_frog: 0.0.1-dev
   equatable: ^2.0.0
   uuid: ^4.3.3
 
